@@ -14,7 +14,7 @@ model = SentenceTransformer(EMBEDDING_MODEL)
 print("Connecting to Qdrant...")
 qdrant = QdrantClient(url=QDRANT_URL)
 
-mcp = FastMCP("rag-docs", host="0.0.0.0", port=8000)
+mcp = FastMCP("rag-docs", host="0.0.0.0", port=8989)
 
 
 @mcp.tool()
@@ -125,5 +125,5 @@ def list_documents() -> dict:
 
 
 if __name__ == "__main__":
-    print("Starting MCP SSE server on 0.0.0.0:8000")
+    print("Starting MCP SSE server on 0.0.0.0:8989")
     mcp.run(transport="sse")
